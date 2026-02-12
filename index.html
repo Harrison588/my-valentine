@@ -42,13 +42,41 @@
 
         <div class="buttons">
             <!-- YES button -->
-            <form action="https://formspree.io/f/mgolawpa" method="POST">
-    <!-- hidden input to identify who clicked -->
+<form id="yesForm">
     <input type="hidden" name="answer" value="YES 💖">
     <input type="hidden" name="name" value="Harrison's Valentine">
     <button type="submit" class="yes-btn">YES 💖</button>
 </form>
-            <!-- NO button -->
+
+<script>
+const form = document.getElementById("yesForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent default page reload
+
+    const formData = new FormData(form);
+
+    fetch("https://formspree.io/f/mgolawpa", { // <-- replace with your Formspree URL
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Redirect to yes.html after successful submission
+            window.location.href = "yes.html";
+        } else {
+            alert("Oops! Something went wrong. Try again.");
+        }
+    })
+    .catch(error => {
+        alert("Oops! Could not submit form.");
+    });
+});
+</script>
+                        <!-- NO button -->
             <button class="no-btn">NO 🙈</button>
         </div>
     </div>
