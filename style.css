@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #0a0a23; /* dark night blue */
-    overflow: hidden;
+    overflow: hidden; /* keep background fixed */
     position: relative;
     font-family: 'Poppins', sans-serif;
 }
@@ -23,8 +23,12 @@ body {
     text-align: center;
     width: 90%;
     max-width: 500px;
-    max-height: 80vh;      /* Limit card height to 80% of screen */
-    overflow-y: auto;      /* Enable vertical scrolling if content overflows */
+
+    /* Make scrollable */
+    max-height: 80vh;          /* limits height to 80% of viewport */
+    overflow-y: auto;          /* vertical scroll if content is too tall */
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     z-index: 2;
     position: relative;
