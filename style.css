@@ -17,13 +17,17 @@ body {
 }
 
 .card {
-    background: white;
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
     border-radius: 20px;
     text-align: center;
     width: 90%;
     max-width: 500px;
+    max-height: 80vh;      /* Limit card height to 80% of screen */
+    overflow-y: auto;      /* Enable vertical scrolling if content overflows */
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    z-index: 2;
+    position: relative;
 }
 
 h1 {
@@ -169,5 +173,9 @@ button {
 
 .card {
     z-index: 2;
+}
+
+.card {
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
 }
 }
